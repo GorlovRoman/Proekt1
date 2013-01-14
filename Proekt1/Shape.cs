@@ -9,7 +9,7 @@ namespace Proekt1
 {
     public abstract class Shape
          {
-            public abstract void DrawWith(Graphics g);
+            public abstract void DrawWith(Graphics g, Pen p);
             public abstract void SaveTo(StreamWriter sw);
  	     }
 
@@ -21,7 +21,7 @@ namespace Proekt1
             {
                 X = _X; Y = _Y;
             }
-            public override void DrawWith(Graphics g)
+            public override void DrawWith(Graphics g, Pen p)
             {
                 g.DrawLine(p, X - 4, Y - 4, X + 4, Y + 4);
                 g.DrawLine(p, X + 4, Y - 4, X - 4, Y + 4);
@@ -49,7 +49,7 @@ namespace Proekt1
                 {
                     this.C = _C; this.F = _F;
                 }
-            public override void DrawWith(Graphics g)
+            public override void DrawWith(Graphics g, Pen p)
 
             {
                  g.DrawLine(p, C, F);
@@ -87,7 +87,7 @@ namespace Proekt1
             P = _P;
             r = Convert.ToInt32(Math.Sqrt(Math.Pow(C.X - P.X, 2) + Math.Pow(C.Y - P.Y, 2)));
         }
-        public override void DrawWith(Graphics g)
+        public override void DrawWith(Graphics g, Pen p)
         {
             g.DrawEllipse(p, C.X - r, C.Y - r, 2 * r, 2 * r);
         }

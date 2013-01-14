@@ -16,6 +16,11 @@ namespace Proekt1
          Point ShapeStart;
          bool IsShapeStart = true;
          string curFile;
+         Pen p;
+         Pen p1 = new Pen(Color.Black);
+         Pen p2 = new Pen(Color.Green);
+         Pen p3 = new Pen(Color.Red, 2);
+         Shape TempShape;
 
         public Form1()
         {
@@ -24,23 +29,38 @@ namespace Proekt1
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
-            this.Text = Convert.ToString(e.X) + " | " + Convert.ToString(e.Y);
+            if (rb_cross.Checked) TempShape = new Cross(e.X, e.Y);
+            else if (rb_line.Checked)
+            {
+                if (!IsShapeStart)
+                {
+                    TempShape = new Line(ShapeStart, e.Location);
+                }
+            }
+            else if (rb_circle.Checked)
+            {
+                if (!IsShapeStart)
+                {
+                    TempShape = new Circle(ShapeStart, e.Location);
+                }
+            }
+            this.Refresh();
         }
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
-             if (rb_cross.Checked) Shapes.Add(new Cross(e.X, e.Y));
-             if (rb_line.Checked)
+            if (rb_cross.Checked) AddShape(TempShape);
+            if (rb_line.Checked)
              {
                  if (!IsShapeStart) ShapeStart = e.Location;
-                 else Shapes.Add(new Line(ShapeStart, e.Location));
+                 else AddShape(TempShape); 
                  IsShapeStart = !IsShapeStart;
              }
              if (rb_circle.Checked)
              {
                  if (IsShapeStart) ShapeStart = e.Location;
-                 else Shapes.Add(new Circle(ShapeStart, e.Location));
-                 IsShapeStart = !IsShapeStart;
+                 else AddShape(TempShape); 
+                 IsShapeStart = true;
              }
             this.Refresh();
         }
@@ -49,7 +69,11 @@ namespace Proekt1
         {
             foreach (Shape f in Shapes)
             {
-                f.DrawWith(e.Graphics);
+                f.DrawWith(e.Graphics, p1);
+            }
+            if (TempShape != null)
+            {
+                TempShape.DrawWith(e.Graphics, p2);
             }
         }
 
