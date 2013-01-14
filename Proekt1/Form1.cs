@@ -109,6 +109,11 @@ namespace Proekt1
                 sr.Close();
             }
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
       
     }
 
