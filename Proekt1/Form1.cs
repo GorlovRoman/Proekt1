@@ -11,7 +11,9 @@ namespace Proekt1
 {
     public partial class Form1 : Form
     {
-        List<Cross> Shapes = new List<Cross>();
+         List<Shape> Shapes = new List<Shape>();
+         Point ShapeStart;
+         bool IsShapeStart = true;
 
         public Form1()
         {
@@ -25,16 +27,27 @@ namespace Proekt1
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
-            Shapes.Add(new Cross(e.X, e.Y));
+             if (rb_cross.Checked) Shapes.Add(new Cross(e.X, e.Y));
+             if (rb_line.Checked)
+             {
+                 if (!IsShapeStart) ShapeStart = e.Location;
+                 else Shapes.Add(new Line(ShapeStart, e.Location));
+                 IsShapeStart = !IsShapeStart;
+             }
             this.Refresh();
         }
        
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            foreach (Cross f in Shapes)
+            foreach (Shape f in Shapes)
             {
                 f.DrawWith(e.Graphics);
             }
+        }
+
+        private void rb_CheckedChanged(object sender, EventArgs e)
+        {
+            IsShapeStart = !IsShapeStart;
         }
       
     }
