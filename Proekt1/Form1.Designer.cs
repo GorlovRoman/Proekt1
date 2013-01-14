@@ -64,13 +64,14 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.Shapes_List = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // rb_cross
             // 
             this.rb_cross.AutoSize = true;
-            this.rb_cross.Location = new System.Drawing.Point(12, 371);
+            this.rb_cross.Location = new System.Drawing.Point(12, 343);
             this.rb_cross.Name = "rb_cross";
             this.rb_cross.Size = new System.Drawing.Size(51, 17);
             this.rb_cross.TabIndex = 0;
@@ -82,7 +83,7 @@
             // rb_line
             // 
             this.rb_line.AutoSize = true;
-            this.rb_line.Location = new System.Drawing.Point(12, 348);
+            this.rb_line.Location = new System.Drawing.Point(12, 320);
             this.rb_line.Name = "rb_line";
             this.rb_line.Size = new System.Drawing.Size(41, 17);
             this.rb_line.TabIndex = 1;
@@ -94,7 +95,7 @@
             // rb_circle
             // 
             this.rb_circle.AutoSize = true;
-            this.rb_circle.Location = new System.Drawing.Point(12, 325);
+            this.rb_circle.Location = new System.Drawing.Point(12, 297);
             this.rb_circle.Name = "rb_circle";
             this.rb_circle.Size = new System.Drawing.Size(51, 17);
             this.rb_circle.TabIndex = 2;
@@ -344,11 +345,20 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // Shapes_List
+            // 
+            this.Shapes_List.FormattingEnabled = true;
+            this.Shapes_List.Location = new System.Drawing.Point(12, 27);
+            this.Shapes_List.Name = "Shapes_List";
+            this.Shapes_List.Size = new System.Drawing.Size(120, 251);
+            this.Shapes_List.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(589, 422);
+            this.Controls.Add(this.Shapes_List);
             this.Controls.Add(this.rb_circle);
             this.Controls.Add(this.rb_line);
             this.Controls.Add(this.rb_cross);
@@ -403,6 +413,7 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ListBox Shapes_List;
     }
 }
 

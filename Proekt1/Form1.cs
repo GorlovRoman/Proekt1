@@ -49,19 +49,22 @@ namespace Proekt1
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
-            if (rb_cross.Checked) AddShape(TempShape);
+            if (rb_cross.Checked)
+            {
+                AddShape(TempShape);
+            }
             if (rb_line.Checked)
-             {
-                 if (!IsShapeStart) ShapeStart = e.Location;
-                 else AddShape(TempShape); 
-                 IsShapeStart = !IsShapeStart;
-             }
-             if (rb_circle.Checked)
-             {
-                 if (IsShapeStart) ShapeStart = e.Location;
-                 else AddShape(TempShape); 
-                 IsShapeStart = true;
-             }
+            {
+                if (IsShapeStart) ShapeStart = e.Location;
+                else AddShape(TempShape);
+                IsShapeStart = !IsShapeStart;
+            }
+            if (rb_circle.Checked)
+            {
+                if (IsShapeStart) ShapeStart = e.Location;
+                else AddShape(TempShape);
+                IsShapeStart = !IsShapeStart;
+            }
             this.Refresh();
         }
        
@@ -85,6 +88,7 @@ namespace Proekt1
         private void AddShape(Shape s)
         {
             Shapes.Add(s);
+            Shapes_List.Items.Add(s.ConfString);
         }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
