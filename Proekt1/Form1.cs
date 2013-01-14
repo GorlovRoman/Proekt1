@@ -58,6 +58,11 @@ namespace Proekt1
             IsShapeStart = !IsShapeStart;
         }
 
+        private void AddShape(Shape s)
+        {
+            Shapes.Add(s);
+        }
+
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (saveFileDialog1.ShowDialog() == DialogResult.OK) 
@@ -69,6 +74,39 @@ namespace Proekt1
                     p.SaveTo(sw);
                 }
                 sw.Close();
+            }
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                curFile = openFileDialog1.FileName;
+                Shapes.Clear();
+                StreamReader sr = new StreamReader(curFile);
+                while (!sr.EndOfStream)
+                {
+                    string type = sr.ReadLine();
+                    switch (type)
+                    {
+                        case "Cross":
+                            {
+                                AddShape(new Cross(sr));
+                                break;
+                            }
+                        case "Line":
+                            {
+                                AddShape(new Line(sr));
+                                break;
+                            }
+                        case "Circle":
+                            {
+                                AddShape(new Circle(sr));
+                                break;
+                            }
+                    }
+                }
+                sr.Close();
             }
         }
       
