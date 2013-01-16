@@ -17,7 +17,6 @@ namespace Proekt1
     public class Cross : Shape
         {
             int X, Y;
-            Pen p = new Pen(Color.Red);
             public Cross(int _X, int _Y)
             {
                 X = _X; Y = _Y;
@@ -51,7 +50,7 @@ namespace Proekt1
         }
     public class Line : Shape
         {
-            Point C, F;  
+            Point C, F;
             Pen p = new Pen(Color.Blue);
             public Line(Point _C, Point _F)
                 {

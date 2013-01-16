@@ -56,14 +56,14 @@ namespace Proekt1
             {
                 if (IsShapeStart) ShapeStart = e.Location;
                 else AddShape(TempShape);
-                IsShapeStart = !IsShapeStart;
             }
             if (rb_circle.Checked)
             {
                 if (IsShapeStart) ShapeStart = e.Location;
                 else AddShape(TempShape);
-                IsShapeStart = !IsShapeStart;
             }
+
+            IsShapeStart = !IsShapeStart;
             this.Refresh();
         }
        
@@ -81,7 +81,9 @@ namespace Proekt1
 
         private void rb_CheckedChanged(object sender, EventArgs e)
         {
+            TempShape = null; 
             IsShapeStart = true;
+            
         }
 
         private void AddShape(Shape s)
@@ -163,7 +165,7 @@ namespace Proekt1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            this.Refresh();
         }
 
         private void button1_MouseMove(object sender, MouseEventArgs e)
