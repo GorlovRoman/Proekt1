@@ -366,6 +366,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Удаление";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button1_MouseMove);
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1

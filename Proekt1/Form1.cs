@@ -11,10 +11,10 @@ using System.IO;
 namespace Proekt1
 {
     public partial class Form1 : Form
-    {
+    {    
          List<Shape> Shapes = new List<Shape>();
          Point ShapeStart;
-         bool IsShapeStart = true;
+         bool IsShapeStart = false;
          string curFile;
          Pen p1 = new Pen(Color.Black);
          Pen p2 = new Pen(Color.Green);
@@ -164,6 +164,11 @@ namespace Proekt1
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_MouseMove(object sender, MouseEventArgs e)
+        {
+            
         }
     }
 
