@@ -14,7 +14,7 @@ namespace Proekt1
     {    
          List<Shape> Shapes = new List<Shape>();
          Point ShapeStart;
-         bool IsShapeStart = false;
+         bool IsShapeStart = true;
          string curFile;
          Pen p1 = new Pen(Color.Black);
          Pen p2 = new Pen(Color.Green);
@@ -81,7 +81,7 @@ namespace Proekt1
 
         private void rb_CheckedChanged(object sender, EventArgs e)
         {
-            IsShapeStart = !IsShapeStart;
+            IsShapeStart = true;
         }
 
         private void AddShape(Shape s)
