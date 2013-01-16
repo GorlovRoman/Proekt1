@@ -16,7 +16,6 @@ namespace Proekt1
          Point ShapeStart;
          bool IsShapeStart = true;
          string curFile;
-         Pen p;
          Pen p1 = new Pen(Color.Black);
          Pen p2 = new Pen(Color.Green);
          Pen p3 = new Pen(Color.Red, 2);
@@ -155,12 +154,16 @@ namespace Proekt1
                 Shapes.RemoveAt(Shapes_List.SelectedIndices[0]);
                 Shapes_List.Items.RemoveAt(Shapes_List.SelectedIndices[0]);
             }
-            //button1.Enabled = false;
             this.Refresh();
         }
         private void Shapes_List_SelectedIndexChanged(object sender, EventArgs e)
         {
-            button1.Enabled = true;
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 
